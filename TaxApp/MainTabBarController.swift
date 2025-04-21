@@ -6,27 +6,27 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
             
         let mainVC = UINavigationController(rootViewController: MainViewController())
-        mainVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        mainVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Home", comment: "Home tab title"), image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         
-        let chatBotVC =  UINavigationController(rootViewController: ChatViewInteractionWithSwiftUI())
-        chatBotVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), selectedImage: UIImage(systemName: "gear.fill"))
+        let settingsVC = UINavigationController(rootViewController: SettingsVC())
+        settingsVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Settings", comment: "Settings tab title"), image: UIImage(systemName: "gear"), selectedImage: UIImage(systemName: "gear.fill"))
         
+        let chatBotVC = UINavigationController(rootViewController: ChatViewInteractionWithSwiftUI())
+        chatBotVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Chat", comment: "Chat tab title"), image: UIImage(systemName: "message"), selectedImage: UIImage(systemName: "message.fill"))
         
         let profileVC = UINavigationController(rootViewController: ProfileViewController())
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
+        profileVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Profile", comment: "Profile tab title"), image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
         
-        let historyVC = UINavigationController(rootViewController: HistoryViewController())
-        historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
+//        let historyVC = UINavigationController(rootViewController: HistoryViewController())
+//        historyVC.tabBarItem = UITabBarItem(title: NSLocalizedString("History", comment: "History tab title"), image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
         
-        let tabBarList = [mainVC, chatBotVC, profileVC, historyVC]
+        let tabBarList = [mainVC, chatBotVC, settingsVC, /*historyVC*/ profileVC]
         viewControllers = tabBarList
         
-        
         tabBar.tintColor = .systemBlue
-        tabBar.backgroundColor = .white 
+        tabBar.backgroundColor = .white
     }
 }
-
 
 extension UIColor {
     func toHexString() -> String {
